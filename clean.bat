@@ -1,0 +1,1 @@
+bash -c "sde-make clean"

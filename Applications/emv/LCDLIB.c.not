@@ -1,0 +1,1257 @@
+#include "system.h"
+#include "extern.h"
+
+#include "EMV_APP.H"
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const char BeginText[16] = "MSGTBLBEGIN\x55\xAA   ";
+const char msg_tbl1[LANGUAGE_MAX][256][16] = {
+    { // For basic English
+    "                ", //  0
+    "1.Terminal Setup", //  1
+//    "  Partial Test  ", //  1
+    "2.Contrast SET  ", //  2
+    "3.Change PIN    ", //  3
+//    "4.Basic TEST    ", //  4
+    "4.TEST          ", //  4
+    "1.Setup MODEM   ", //  5
+    "2.DownLoad FILE ", //  6
+    "3.Set Date Time ", //  7
+    "4.Setup Others  ", //  8
+    "Beep Sound      ", //  9
+    "2. OFF          ", // 10
+    "3. ON           ", // 11
+    "TEACHING MODE   ", // 12
+    "DownLoading...  ", // 13
+    "EMV APPLICATION ", // 14
+    "<Set Date&Time> ", // 15
+    " <Printer Test> ", // 16
+    "2.Paper Check   ", // 17 //NoUse
+    "3.Printing...   ", // 18 //NoUse
+    "Force OnLine    ", // 19
+    " <Paper Check>  ", // 20 //NoUse
+    "Paper Not Found.", // 21
+    "Paper Found.    ", // 22
+    "  <Paper Seek>  ", // 23 //NoUse
+    "   <Printing>   ", // 24 //NoUse
+    "<MSR READ READY>", // 25 //NoUse
+    "SWIPE YOUR CARD ", // 26
+    "System Font     ", // 27
+    "2. NO           ", // 28
+    "3. YES          ", // 29
+    "1.Beep Sound    ", // 30
+    "2.System Font   ", // 31
+    "3.Force OnLine  ", // 32
+    "4.TEACHING MODE ", // 33
+    "   DIALING NOW  ", // 34
+    " LINE CONNECTED ", // 35
+    " DATA RECEVING..", // 36
+    " DATA SENDING...", // 37
+    "PABX ACCESS     ", // 38
+    "PABX ACCESS CODE", // 39
+    "TELEPHONE NO    ", // 40
+    "   < MODEM >    ", // 41
+    "No Dial Tone    ", // 42
+    "Line Busy       ", // 43
+    "No Carrier      ", // 44
+    "Line Error...   ", // 45
+    "Timeout(S7)     ", // 46
+    "TimeOut Error!  ", // 47
+    "<Push Enter Key>", // 48
+    "Select MODEM    ", // 49
+    "2. DialUP       ", // 50
+    "3. EtherNET     ", // 51
+    "Modem Speed     ", // 52
+    "2. 1200BPS      ", // 53
+    "3. 2400BPS      ", // 54
+    "Com Mode        ", // 55
+    "2. Async        ", // 56
+    "3. Sync         ", // 57
+    "Standard        ", // 58
+    "2. CCITT        ", // 59
+    "3. BELL         ", // 60
+    "Dialing Mode    ", // 61
+    "2. Normal Mode  ", // 62
+    "3. Blind  Mode  ", // 63
+    "1.ICC Card Test ", // 64
+    "2.MSR Card Test ", // 65
+    "3.Modem Test    ", // 66
+    "4.Print Test    ", // 67
+    "CARD READING... ", // 68 //Standard messages for EMV2000
+    "INPUT AMOUNT    ", // 69
+    "AMOUNT OK?      ", // 70
+    "APPROVED        ", // 71
+    "CALL YOUR BANK  ", // 72
+    "CANCEL OR ENTER ", // 73
+    "CARD ERROR      ", // 74
+    "DECLINED        ", // 75
+    "ENTER AMOUNT    ", // 76
+    "PLEASE ENTER PIN", // 77
+    "INCORRECT PIN   ", // 78
+    "INSERT CARD     ", // 79
+    "NOT ACCEPTED    ", // 80
+    "PIN OK          ", // 81
+    "PLEASE WAIT     ", // 82
+    "PROCESSING ERROR", // 83
+    "REMOVE CARD     ", // 84
+    "USE CHIP READER ", // 85
+    "USE MAG STRIPE  ", // 86
+    "TRY AGAIN       ", // 87
+    "IFM detected....", // 88
+    "No IFM detected.", // 89
+    "TRANSACTION END.", // 90 //Printer& LCD for ISO8583
+    "TOT:            ", // 91
+    "YYMM :          ", // 92
+    "TEST TERMINAL",    // 93 //NoUse
+    "TEST MERCHANT",    // 94 //NoUse
+    "THANK YOU",        // 95
+    "TID  :",           // 96
+    "MID  :",           // 97
+    "NID  :",           // 98
+    "AID  :",           // 99
+    "PAN  :",           //100
+    "Exp. :",           //101
+    "Batch:",           //102
+    "Trace:",           //103
+    "Date :",           //104
+    "Time :",           //105
+    "Ref# :",           //106
+    "App# :",           //107
+    "TOTAL:",           //108
+    "Sign.:",           //109
+    "Track1 ERROR!   ", //110
+    "Track2 ERROR!   ", //111
+    " <Pin Pad Test> ", //112 //for PinPAD Test
+    " Amount         ", //113
+    " Please Wait... ", //114
+    "PinPad not found", //115
+    "Communication - ", //116
+    "failed.",          //117
+    "SECTOR ERASING..", //118
+    "completed.",       //119
+    "BITEL PASS",       //120
+    "CheckSum Error! ", //121
+    "CLEAR OR ENTER  ", //122
+    "  ????          ", //123
+    "1.  goto ON_LINE", //124 //for Referral...
+    "2.       APPROVE", //125
+    "3.       DECLINE", //126
+    "PLEASE SELECT   ", //127
+    "On Line Process ", //128
+    "OffLine Process ", //129
+    "CLEAR:UnableToGo", //130
+    "ENTER:..OnLine..", //131
+    "LAST PIN TRY!   ", //132
+    "ENTER NEW PIN   ", //133
+    "CONFIRM NEW PIN ", //134
+    "TYPE CARD NUMBER", //135
+    "TYPE EXPIRATION ", //136
+    "Request FILEname", //137
+    "      & FILEsize", //138
+    "ISSUER REFERRAL ", //139
+    "ALREADY DONE!   ", //140
+    "REFUND required ", //141
+    "SET CONTRAST    ", //142
+    "2. BRIGHT       ", //143
+    "3. DARK         ", //144
+    "1.Credit Sale   ", //145-152
+    "2.Balance Inq.  ",
+    "3.Cash Advance  ",
+    "4.Next Page...  ",
+    "1.Refund        ",
+    "2.Void          ",
+    "3...............",
+    "4.Change UserPIN",
+    "Retrieval Number", //153
+    "1.Settlement    ", //154-157
+    "2.View Trans.   ",
+    "3.Print Totals  ",
+    "4.Logon Terminal",
+    "Sale   Count:",    //158-161
+    "Refund Count:",
+    "Cash   Count:",
+    "       Total:",
+    "PULSE DIAL?     ", //162
+    "DISPLAY FONT?   ", //163
+    "OffLine ",         //164
+    "On Line ",         //165
+    "(TYP):",           //166
+    "(MSR):",           //167
+    "(ICC):",           //168
+    " TVR :",           //169
+    " TSI :",           //170
+    " CVMR:",           //171
+    "TransactionTotal", //172
+    "Settlement Total", //173
+    "ServerIP Address", //174
+    "Server PortNo   ", //175
+    "GatewayIPAddress", //176
+    "Subnet Mask     ", //177
+    "LocalIP Address ", //178
+    "Local PortNo    ", //179
+    "Local Timeout   ", //180
+
+    "1.Basic TEST    ", //181
+    "2.PINPAD TEST   ", //182
+    "PINPAD TEST MODE",	//183
+    "1.Inquiry       ",	//184
+    "2.Settlement    ",	//185
+    "    DB full!    ",	//186
+    "Try again after ",	//187
+    "   settlement   ",	//188
+    "PRESS ENTER KEY ",	//189
+    "FOR SETTLEMENT  ",	//190
+    " [KEY DOWNLOAD] ",	//191
+    "KEY LOAD READY! ",	//192
+    },
+    { // For User Application Language
+    "                ", //  0
+    "1.Terminal Setup", //  1
+    "2.Contrast SET  ", //  2
+    "3.Change PIN    ", //  3
+//    "4.Basic TEST    ", //  4
+    "4.TEST          ", //  4
+    "1.Setup MODEM   ", //  5
+    "2.DownLoad FILE ", //  6
+    "3.Set Date Time ", //  7
+    "4.Setup Others  ", //  8
+    "Beep Sound      ", //  9
+    "2. OFF          ", // 10
+    "3. ON           ", // 11
+    "TEACHING MODE   ", // 12
+    "DownLoading...  ", // 13
+    "EMV APPLICATION ", // 14
+    "<Set Date&Time> ", // 15
+    " <Printer Test> ", // 16
+    "2.Paper Check   ", // 17 //NoUse
+    "3.Printing...   ", // 18 //NoUse
+    "Force OnLine    ", // 19
+    " <Paper Check>  ", // 20 //NoUse
+    "Paper Not Found.", // 21
+    "Paper Found.    ", // 22
+    "  <Paper Seek>  ", // 23 //NoUse
+    "   <Printing>   ", // 24 //NoUse
+    "<MSR READ READY>", // 25 //NoUse
+    "SWIPE YOUR CARD ", // 26
+    "System Font     ", // 27
+    "2. NO           ", // 28
+    "3. YES          ", // 29
+    "1.Beep Sound    ", // 30
+    "2.System Font   ", // 31
+    "3.Force OnLine  ", // 32
+    "4.TEACHING MODE ", // 33
+    "   DIALING NOW  ", // 34
+    " LINE CONNECTED ", // 35
+    " DATA RECEVING..", // 36
+    " DATA SENDING...", // 37
+    "PABX ACCESS     ", // 38
+    "PABX ACCESS CODE", // 39
+    "TELEPHONE NO    ", // 40
+    "   < MODEM >    ", // 41
+    "No Dial Tone    ", // 42
+    "Line Busy       ", // 43
+    "No Carrier      ", // 44
+    "Line Error...   ", // 45
+    "Timeout(S7)     ", // 46
+    "TimeOut Error!  ", // 47
+    "<Push Enter Key>", // 48
+    "Select MODEM    ", // 49
+    "2. DialUP       ", // 50
+    "3. EtherNET     ", // 51
+    "Modem Speed     ", // 52
+    "2. 1200BPS      ", // 53
+    "3. 2400BPS      ", // 54
+    "Com Mode        ", // 55
+    "2. Async        ", // 56
+    "3. Sync         ", // 57
+    "Standard        ", // 58
+    "2. CCITT        ", // 59
+    "3. BELL         ", // 60
+    "Dialing Mode    ", // 61
+    "2. Normal Mode  ", // 62
+    "3. Blind  Mode  ", // 63
+    "1.ICC Card Test ", // 64
+    "2.MSR Card Test ", // 65
+    "3.Modem Test    ", // 66
+    "4.Print Test    ", // 67
+    "CARD READING... ", // 68 //Standard messages for EMV2000
+    "INPUT AMOUNT    ", // 69
+    "AMOUNT OK?      ", // 70
+    "APPROVED        ", // 71
+    "CALL YOUR BANK  ", // 72
+    "CANCEL OR ENTER ", // 73
+    "CARD ERROR      ", // 74
+    "DECLINED        ", // 75
+    "ENTER AMOUNT    ", // 76
+    "PLEASE ENTER PIN", // 77
+    "INCORRECT PIN   ", // 78
+    "INSERT CARD     ", // 79
+    "NOT ACCEPTED    ", // 80
+    "PIN OK          ", // 81
+    "PLEASE WAIT     ", // 82
+    "PROCESSING ERROR", // 83
+    "REMOVE CARD     ", // 84
+    "USE CHIP READER ", // 85
+    "USE MAG STRIPE  ", // 86
+    "TRY AGAIN       ", // 87
+    "IFM detected....", // 88
+    "No IFM detected.", // 89
+    "TRANSACTION END.", // 90 //Printer& LCD for ISO8583
+    "TOT:            ", // 91
+    "YYMM :          ", // 92
+    "TEST TERMINAL",    // 93 //NoUse
+    "TEST MERCHANT",    // 94 //NoUse
+    "THANK YOU",        // 95
+    "TID  :",           // 96
+    "MID  :",           // 97
+    "NID  :",           // 98
+    "AID  :",           // 99
+    "PAN  :",           //100
+    "Exp. :",           //101
+    "Batch:",           //102
+    "Trace:",           //103
+    "Date :",           //104
+    "Time :",           //105
+    "Ref# :",           //106
+    "App# :",           //107
+    "TOTAL:",           //108
+    "Sign.:",           //109
+    "Track1 ERROR!   ", //110
+    "Track2 ERROR!   ", //111
+    " <Pin Pad Test> ", //112 //for PinPAD Test
+    " Amount         ", //113
+    " Please Wait... ", //114
+    "PinPad not found", //115
+    "Communication - ", //116
+    "failed.",          //117
+    "SECTOR ERASING..", //118
+    "completed.",       //119
+    "BITEL PASS",       //120
+    "CheckSum Error! ", //121
+    "CLEAR OR ENTER  ", //122
+    "  ????          ", //123
+    "1.  goto ON_LINE", //124 //for Referral...
+    "2.       APPROVE", //125
+    "3.       DECLINE", //126
+    "PLEASE SELECT   ", //127
+    "On Line Process ", //128
+    "OffLine Process ", //129
+    "CLEAR:UnableToGo", //130
+    "ENTER:..OnLine..", //131
+    "LAST PIN TRY!   ", //132
+    "ENTER NEW PIN   ", //133
+    "CONFIRM NEW PIN ", //134
+    "TYPE CARD NUMBER", //135
+    "TYPE EXPIRATION ", //136
+    "Request FILEname", //137
+    "      & FILEsize", //138
+    "ISSUER REFERRAL ", //139
+    "ALREADY DONE!   ", //140
+    "REFUND required ", //141
+    "SET CONTRAST    ", //142
+    "2. BRIGHT       ", //143
+    "3. DARK         ", //144
+    "1.Credit Sale   ", //145-152
+    "2.Balance Inq.  ",
+    "3.Cash Advance  ",
+    "4.Next Page...  ",
+    "1.Refund        ",
+    "2.Void          ",
+    "3...............",
+    "4.Change UserPIN",
+    "Retrieval Number", //153
+    "1.Settlement    ", //154-157
+    "2.View Trans.   ",
+    "3.Print Totals  ",
+    "4.Logon Terminal",
+    "Sale   Count:",    //158-161
+    "Refund Count:",
+    "Cash   Count:",
+    "       Total:",
+    "PULSE DIAL?     ", //162
+    "DISPLAY FONT?   ", //163
+    "OffLine ",         //164
+    "On Line ",         //165
+    "(TYP):",           //166
+    "(MSR):",           //167
+    "(ICC):",           //168
+    " TVR :",           //169
+    " TSI :",           //170
+    " CVMR:",           //171
+    "TransactionTotal", //172
+    "Settlement Total", //173
+    "ServerIP Address", //174
+    "Server PortNo   ", //175
+    "GatewayIPAddress", //176
+    "Subnet Mask     ", //177
+    "LocalIP Address ", //178
+    "Local PortNo    ", //179
+    "Local Timeout   ", //180
+
+    "1.Basic TEST    ", //181
+    "2.PINPAD TEST   ", //182
+    "PINPAD TEST MODE",	//183
+    "1.Inquiry       ",	//184
+    "2.Settlement    ",	//185
+    "    DB full!    ",	//186
+    "Try again after ",	//187
+    "   settlement   ",	//188
+    "PRESS ENTER KEY ",	//189
+    "FOR SETTLEMENT  ",	//190
+    " [KEY DOWNLOAD] ",	//191
+    "KEY LOAD READY! ",	//192
+    },
+};
+const char EndText[32] = "MSGTBLEND\x55\xAA                     ";
+
+const int msg_tbl4[][4] = {
+    {   0,   0,   0,   0 }, // 0
+    {   1,   2,   3,   4 }, // 1
+    {   5,   6,   7,   8 }, // 2
+    {  64,  65,  66,  67 }, // 3 "Basic TEST      "
+    {  13,  -1,  -1,  -1 }, // 4 "Select MODEM    "
+    {   9,  10,  11,   0 }, // 5 "BEEP SOUND      "
+    {  15,   0,   0,   0 }, // 6
+    {  16,   0,   0,  73 }, // 7 " <Printer Test> "
+    {  -1,  -1,  22,  -1 }, // 8 //NoUse
+    {  -1,  -1,  21,  -1 }, // 9 //NoUse
+    {  -1,  -1,  22,  -1 }, //10 "Paper Found.    "
+    {  -1,  -1,  21,  -1 }, //11 "Paper Not Found."
+    {  23,   0,   0,   0 }, //12 "  <Paper Seek>  "
+    {  24,   0,   0,  73 }, //13 "   <Printing>   "
+    {  25,   0,   0,  26 }, //14 //NoUse
+    {  27,  10,  11,   0 }, //15 "System Font     "
+    {  30,  31,  32,  33 }, //16
+    {  19,  28,  29,   0 }, //17 "Force OnLine    "
+    {  38,  28,  29,   0 }, //18 "PABX ACCESS     "
+    {  39,   0,   0,   0 }, //19
+    {  40,   0,   0,   0 }, //20
+    {  41,   0,  34,   0 }, //21 //LsDialingNow
+    {  41,   0,  35,   0 }, //22 //LsLineConnected
+    {  41,  -1,  36,  -1 }, //23 //LsDataReceiving
+    {  41,  -1,  37,  -1 }, //24 //LsDataSending
+    {  41,  -1,  42,  -1 }, //25 //LsNoDialTone
+    {  41,  -1,  43,  -1 }, //26 //LsLineBusy
+    {  41,   0,  44,   0 }, //27 //LsNoCarrier
+    {  41,  -1,  45,  -1 }, //28 //LsLineError
+    {  41,  -1,  46,  -1 }, //29 //LsTimeoutS7
+    {  49,  50,  51,   0 }, //30 "Select MODEM    "
+    {  52,  53,  54,   0 }, //31 "Modem Speed     "
+    {  55,  56,  57,   0 }, //32 "Com Mode        "
+    {  58,  59,  60,   0 }, //33 "Standard        "
+    {  61,  62,  63,   0 }, //34 "Dialing Mode    "
+    { 162,  28,  29,   0 }, //35 "Pulse Dial?     "
+    {  12,  28,  29,   0 }, //36 "TEACHING MODE   "
+// For PinPAD
+    { 112,   0,   0,   0 }, //37
+    { 112,   0,   0,  26 }, //38
+    { 112,   0, 113,   0 }, //39
+    { 112,   0, 114,   0 }, //40
+    { 112,   0, 115,   0 }, //41.
+    { 112,   0, 116, 117 }, //42.
+    { 112,   0, 114,   0 }, //43
+    { 135,   0,   0,   0 }, //#define LsEnterPAN=44
+    { 136,  -1,  92,   0 }, //#define LsEnterYYMM
+    {  26,   0,   0,   0 }, //#define LsSwipeCard
+    {  -1,  -1,  -1,  79 }, //#define LsInsertCard
+    {  69,   0,   0,  48 }, //#define LsAmount
+    {  77,   0,   0,  73 }, //#define LsEnterPIN
+    {  90,   0,   0,  48 }, //#define LsTrxnResult
+    {   0,  89,  86,   0 }, //#define LsEMVuseMSR
+    {   0,  88,  85,  82 }, //#define LsEMVuseICC
+    {   0,   0,   0, 127 }, //#define LsEMVselect
+    {  -1,   0,  68,  82 }, //#define LsEMVreading
+    { 124, 125, 126, 127 }, //#define LsEMVreferral
+    { 128,   0, 130, 131 }, //#define LsEMVOn_Line
+    { 129,   0,   0,   0 }, //#define LsEMVOffLine
+    { 132,   0,   0,  73 }, //#define LsPINtryLast
+    {  87,  78,   0,  73 }, //#define LsPINincorrect
+    {  -1,  81,  -1,  -1 }, //#define LsPIN_OK
+    { 133,   0,   0,  73 }, //#define LsPINchange
+    { 134,   0,   0,  73 }, //#define LsPINconfirm
+    { 139, 125, 126, 127 }, //#define LsISSreferral
+    { 142, 143, 144,   0 }, //#define LsLCDcontrast
+    { 145, 146, 147, 148 }, //#define LsTrxnF5INQ
+    { 149, 150, 151, 152 },
+    { 153,   0,   0,  48 }, //#define LsRetrievalRefNr
+    { 154, 155, 156, 157 }, //#define LsTrxnF6SET
+    { 118,   0,   0,  82 }, //#define LsSectorErase
+    { 174,   0,   0,   0 }, //70//#define LsEtherNET
+    { 175,   0,   0,   0 }, //71
+    { 176,   0,   0,   0 }, //72
+    { 177,   0,   0,   0 }, //73
+    { 178,   0,   0,   0 }, //74
+    { 179,   0,   0,   0 }, //75
+    { 180,   0,   0,   0 }, //76
+    {  97,   0,  96,   0 }, //77//#define LsMID_TID
+    {  -1,  87,  -1,  73 }, //78//#define LsRetryTrxn
+// sispp 20060401
+    { 181, 182,   0,   0 }, //79
+    {   0, 183,   0,   0 }, //80
+    { 184, 185,   0,   0 }, //81
+    { 186,   0, 187, 188 }, //82
+    { 189, 190,   0,  73 },	//83
+    { 191,   0, 192,   0 },	//84
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const int StsTbl[][16] = {
+    { -1, },                                      //#define TstgNULL            0
+    { 10, 11, 12, 11, 16,},                       //#define TstgPassWord        1
+    { 20, 21,},                                   //#define TstgSetTerminalID   2
+    { 100,101,102,103,104,105,106,107,108,109},   //#define TstgSetupModem      3
+    { 111,112,113,114,115,116,117,119,119,119},   //#define TstgSetupEtherNET   4
+    { 30, 31, 32, 33, 34},                        //#define TstgMenuOthers      5
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+//.T2n_TrmTrxnCurrencyCode ->ISO4217:2000
+const ISO_4217NAME  gc4217Name[] = {
+    {0x04  ,0x02,"AFA"}, //Afghanistan  Afghani
+    {0x08  ,0x02,"ALL"}, //Albania  Lek
+    {0x012 ,0x02,"DZD"}, //Algeria  Algerian Dinar
+    {0x0840,0x02,"USD"}, //American Samoa   US Dollar
+    {0x0724,0x02,"ESP"}, //Andorra  Spanish Peseta
+    {0x0250,0x02,"FRF"}, // French Franc
+    {0x020 ,0x02,"ADP"}, // Andorran Peseta
+    {0x024 ,0x02,"AON"}, //Angola   New Kwanza
+    {0x0982,0x02,"AOR"}, // Kwanza Reajustado
+    {0x0951,0x02,"XCD"}, //Anguilla East Caribbean Dollar
+    {0x0951,0x02,"XCD"}, //Antigua and Barbuda  East Caribbean Dollar
+    {0x032 ,0x02,"ARS"}, //Argentina    Argentine Peso
+    {0x051 ,0x02,"AMD"}, //Armenia  Armenian Dram
+    {0x0533,0x02,"AWG"}, //Aruba    Aruban Guilder
+    {0x036 ,0x02,"AUD"}, //Australia    Australian Dollar
+    {0x040 ,0x02,"ATS"}, //Austria  Schilling
+    {0x031 ,0x02,"AZM"}, //Azerbaijan   Azerbaijanian Manat
+    {0x044 ,0x02,"BSD"}, //Bahamas  Bahamian Dollar
+    {0x048 ,0x02,"BHD"}, //Bahrain  Bahraini Dinar
+    {0x050 ,0x02,"BDT"}, //Bangladesh   Taka
+    {0x052 ,0x02,"BBD"}, //Barbados Barbados Dollar
+    {0x0974,0x02,"BYR"}, //Belarus  Belarussian Ruble
+    {0x056 ,0x02,"BEF"}, //Belgium  Belgian Franc
+    {0x084 ,0x02,"BZD"}, //Belize   Belize Dollar
+    {0x0952,0x02,"XOF"}, //Benin    CFA Franc BCEAO
+    {0x060 ,0x02,"BMD"}, //Bermuda  Bermudian Dollar
+    {0x0356,0x00,"INR"}, //Bhutan   Indian Rupee
+    {0x064 ,0x02,"BTN"}, // Ngultrum
+    {0x0977,0x02,"BAM"}, //Bosnia and Herzegovina   Convertible Marks
+    {0x072 ,0x02,"BWP"}, //Botswana Pula
+    {0x0578,0x02,"NOK"}, //Bouvet Island    Norwegian Krone
+    {0x0986,0x02,"BRL"}, //Brazil   Brazilian Real
+    {0x0840,0x02,"USD"}, //British Indian Ocean Territory   US Dollar
+    {0x096 ,0x02,"BND"}, //Brunei Darussalam    Brunei Dollar
+    {0x0100,0x02,"BGL"}, //Bulgaria Lev
+    {0x0975,0x02,"BGN"}, // Bulgarian LEV
+    {0x0952,0x02,"XOF"}, //Burkina Faso CFA Franc BCEAO
+    {0x0108,0x02,"BIF"}, //Burundi  Burundi Franc
+    {0x0116,0x02,"KHR"}, //Cambodia Riel
+    {0x0950,0x02,"XAF"}, //Cameroon CFA Franc BEAC
+    {0x0124,0x02,"CAD"}, //Canada   Canadian Dollar
+    {0x0132,0x02,"CVE"}, //Cape Verde   Cape Verde Escudo
+    {0x0136,0x02,"KYD"}, //Cayman Islands   Cayman Islands Dollar
+    {0x0950,0x02,"XAF"}, //Central African Republic CFA Franc BEAC //Chad CFA Franc BEAC
+    {0x0152,0x02,"CLP"}, //Chile    Chilean Peso
+    {0x0990,0x02,"CLF"}, // Unidades de fomento
+    {0x0156,0x02,"CNY"}, //China    Yuan Renminbi
+    {0x036 ,0x02,"AUD"}, //Christmas Island Australian Dollar //Cocos (Keeling) Islands  Australian Dollar
+    {0x0170,0x02,"COP"}, //Colombia Colombian Peso
+    {0x0174,0x02,"KMF"}, //Comoros  Comoro Franc
+    {0x0950,0x02,"XAF"}, //Congo    CFA Franc BEAC
+    {0x0976,0x02,"CDF"}, //Congo, The Democratic Republic Of    Franc Congolais
+    {0x0554,0x02,"NZD"}, //Cook Islands New Zealand Dollar
+    {0x0188,0x02,"CRC"}, //Costa Rica   Costa Rican Colon
+    {0x0952,0x02,"XOF"}, //Cote D'ivoire    CFA Franc BCEAO
+    {0x0191,0x02,"HRK"}, //Croatia  Kuna
+    {0x0192,0x02,"CUP"}, //Cuba Cuban Peso
+    {0x0196,0x02,"CYP"}, //Cyprus   Cyprus Pound
+    {0x0203,0x02,"CZK"}, //Czech Republic   Czech Koruna
+    {0x0208,0x02,"DKK"}, //Denmark  Danish Krone
+    {0x0262,0x02,"DJF"}, //Djibouti Djibouti Franc
+    {0x0951,0x02,"XCD"}, //Dominica East Caribbean Dollar
+    {0x0214,0x02,"DOP"}, //Dominican Republic   Dominican Peso
+    {0x0626,0x02,"TPE"}, //East Timor   Timor Escudo
+    {0x0360,0x02,"IDR"}, // Rupiah
+    {0x0218,0x02,"ECS"}, //Ecuador  Sucre
+    {0x0983,0x02,"ECV"}, // Unidad de Valor Constante (UVC)
+    {0x0818,0x02,"EGP"}, //Egypt    Egyptian Pound
+    {0x0222,0x02,"SVC"}, //El Salvador  El Salvador Colon
+    {0x0950,0x02,"XAF"}, //Equatorial Guinea    CFA Franc BEAC
+    {0x0233,0x02,"EEK"}, //Estonia  Kroon
+    {0x0232,0x02,"ERN"}, //Eritrea  Nakfa
+    {0x0230,0x02,"ETB"}, //Ethiopia Ethiopian Birr
+    {0x0208,0x02,"DKK"}, //Faeroe Islands   Danish Krone
+    {0x0238,0x02,"FKP"}, //Falkland Islands (Malvinas)  Pound
+    {0x0242,0x02,"FJD"}, //Fiji Fiji Dollar
+    {0x0246,0x02,"FIM"}, //Finland  Markka
+    {0x0250,0x02,"FRF"}, //France   French Franc
+    {0x0250,0x02,"FRF"}, //French Guiana    French Franc
+    {0x0953,0x02,"XPF"}, //French Polynesia CFP Franc
+    {0x0250,0x02,"FRF"}, //French Southern Territories  French Franc
+    {0x0950,0x02,"XAF"}, //Gabon    CFA Franc BEAC
+    {0x0270,0x02,"GMD"}, //Gambia   Dalasi
+    {0x0981,0x02,"GEL"}, //Georgia  Lari
+    {0x0280,0x02,"DEM"}, //Germany  Deutsche Mark
+    {0x0288,0x02,"GHC"}, //Ghana    Cedi
+    {0x0292,0x02,"GIP"}, //Gibraltar    Gibraltar Pound
+    {0x0300,0x02,"GRD"}, //Greece   Drachma
+    {0x0208,0x02,"DKK"}, //Greenland    Danish Krone
+    {0x0951,0x02,"XCD"}, //Grenada  East Caribbean Dollar
+    {0x0250,0x02,"FRF"}, //Guadeloupe   French Franc
+    {0x0840,0x02,"USD"}, //Guam US Dollar
+    {0x0320,0x02,"GTQ"}, //Guatemala    Quetzal
+    {0x0324,0x02,"GNF"}, //Guinea   Guinea Franc
+    {0x0624,0x02,"GWP"}, //Guinea-Bissau    Guinea-Bissau Peso
+    {0x0952,0x02,"XOF"}, // CFA Franc BCEAO
+    {0x0328,0x02,"GYD"}, //Guyana   Guyana Dollar
+    {0x0332,0x02,"HTG"}, //Haiti    Gourde
+    {0x0840,0x02,"USD"}, // US Dollar
+    {0x036 ,0x02,"AUD"}, //Heard and Mcdonald Islands   Australian Dollar
+    {0x0340,0x02,"HNL"}, //Honduras Lempira
+    {0x0344,0x02,"HKD"}, //Hong Kong    Hong Kong Dollar
+    {0x0348,0x02,"HUF"}, //Hungary  Forint
+    {0x0352,0x02,"ISK"}, //Iceland  Iceland Krona
+    {0x0356,0x02,"INR"}, //India    Indian Rupee
+    {0x0360,0x02,"IDR"}, //Indonesia    Rupiah
+    {0x0960,0x02,"XDR"}, //International Monetary Fund (Imf)    SDR
+    {0x0364,0x00,"IRR"}, //Iran (Islamic Republic Of) Iranian Rial	//  {0x0364,0x00,"\xE1\xB1\xEE\xC4"},
+    {0x0368,0x02,"IQD"}, //Iraq Iraqi Dinar
+    {0x0372,0x02,"IEP"}, //Ireland  Irish Pound
+    {0x0376,0x02,"ILS"}, //Israel   New Israeli Sheqel
+    {0x0380,0x02,"ITL"}, //Italy    Italian Lira
+    {0x0388,0x02,"JMD"}, //Jamaica  Jamaican Dollar
+    {0x0392,0x00,"JPY"}, //Japan    Yen
+    {0x0400,0x02,"JOD"}, //Jordan   Jordanian Dinar
+    {0x0398,0x02,"KZT"}, //Kazakhstan   Tenge
+    {0x0404,0x02,"KES"}, //Kenya    Kenyan Shilling
+    {0x036 ,0x02,"AUD"}, //Kiribati Australian Dollar
+    {0x0408,0x00,"KPW"}, //Korea, Democratic People's Republic Of   North Korean Won
+    {0x0410,0x00,"KRW"}, //Korea, Republic Of   Won
+    {0x0414,0x02,"KWD"}, //Kuwait   Kuwaiti Dinar
+    {0x0417,0x02,"KGS"}, //Kyrgyzstan   Som
+    {0x0418,0x02,"LAK"}, //Lao People's Democratic Republic Kip
+    {0x0428,0x02,"LVL"}, //Latvia   Latvian Lats
+    {0x0422,0x02,"LBP"}, //Lebanon  Lebanese Pound
+    {0x0710,0x02,"ZAR"}, //Lesotho  Rand
+    {0x0991,0x02,"ZAL"}, // (financial Rand)
+    {0x0426,0x02,"LSL"}, // Loti
+    {0x0430,0x02,"LRD"}, //Liberia  Liberian Dollar
+    {0x0434,0x02,"LYD"}, //Libyan Arab Jamahiriya   Libyan Dinar
+    {0x0756,0x02,"CHF"}, //Liechtenstein    Swiss Franc
+    {0x0440,0x02,"LTL"}, //Lithuania    Lithuanian Litas
+    {0x0442,0x02,"LUF"}, //Luxembourg   Luxembourg Franc
+    {0x0446,0x02,"MOP"}, //Macau    Pataca
+    {0x0807,0x02,"MKD"}, //Macedonia, The Former Yugoslav Republic Of   Denar
+    {0x0450,0x02,"MGF"}, //Madagascar   Malagasy Franc
+    {0x0454,0x02,"MWK"}, //Malawi   Kwacha
+    {0x0458,0x02,"MYR"}, //Malaysia Malaysian Ringgit
+    {0x0462,0x02,"MVR"}, //Maldives Rufiyaa
+    {0x0952,0x02,"XOF"}, //Mali CFA Franc BCEAO
+    {0x0470,0x02,"MTL"}, //Malta    Maltese Lira
+    {0x0840,0x02,"USD"}, //Marshall Islands US Dollar
+    {0x0250,0x02,"FRF"}, //Martinique   French Franc
+    {0x0478,0x02,"MRO"}, //Mauritania   Ouguiya
+    {0x0480,0x02,"MUR"}, //Mauritius    Mauritius Rupee
+    {0x0484,0x02,"MXN"}, //Mexico   Mexican Peso
+    {0x0979,0x02,"MXV"}, // Mexican Unidad de Inversion (UDI)
+    {0x0840,0x02,"USD"}, //Micronesia   US Dollar
+    {0x0498,0x02,"MDL"}, //Moldova, Republic Of Moldovan Leu
+    {0x0250,0x02,"FRF"}, //Monaco   French Franc
+    {0x0496,0x02,"MNT"}, //Mongolia Tugrik
+    {0x0951,0x02,"XCD"}, //Montserrat   East Caribbean Dollar
+    {0x0504,0x02,"MAD"}, //Morocco  Moroccan Dirham
+    {0x0508,0x02,"MZM"}, //Mozambique   Metical
+    {0x0104,0x02,"MMK"}, //Myanmar  Kyat
+    {0x0710,0x02,"ZAR"}, //Namibia  Rand
+    {0x0516,0x02,"NAD"}, // Namibia Dollar
+    {0x036 ,0x02,"AUD"}, //Nauru    Australian Dollar
+    {0x0524,0x02,"NPR"}, //Nepal    Nepalese Rupee
+    {0x0528,0x02,"NLG"}, //Netherlands  Netherlands Guilder
+    {0x0532,0x02,"ANG"}, //Netherlands Antilles Antillian Guilder
+    {0x0953,0x02,"XPF"}, //New Caledonia    CFP Franc
+    {0x0554,0x02,"NZD"}, //New Zealand  New Zealand Dollar
+    {0x0558,0x02,"NIO"}, //Nicaragua    Cordoba Oro
+    {0x0952,0x02,"XOF"}, //Niger    CFA Franc BCEAO
+    {0x0566,0x02,"NGN"}, //Nigeria  Naira
+    {0x0554,0x02,"NZD"}, //Niue New Zealand Dollar
+    {0x036 ,0x02,"AUD"}, //Norfolk Island   Australian Dollar
+    {0x0840,0x02,"USD"}, //Northern Mariana Islands US Dollar
+    {0x0578,0x02,"NOK"}, //Norway   Norwegian Krone
+    {0x0512,0x02,"OMR"}, //Oman Rial Omani
+    {0x0586,0x02,"PKR"}, //Pakistan Pakistan Rupee
+    {0x0840,0x02,"USD"}, //Palau    US Dollar
+    {0x0590,0x02,"PAB"}, //Panama   Balboa
+    {0x0840,0x02,"USD"}, // US Dollar
+    {0x0598,0x02,"PGK"}, //Papua New Guinea Kina
+    {0x0600,0x02,"PYG"}, //Paraguay Guarani
+    {0x0604,0x02,"PEN"}, //Peru Nuevo Sol
+    {0x0608,0x02,"PHP"}, //Philippines  Philippine Peso
+    {0x0554,0x02,"NZD"}, //Pitcairn New Zealand Dollar
+    {0x0985,0x02,"PLN"}, //Poland   Zloty
+    {0x0620,0x02,"PTE"}, //Portugal Portuguese Escudo
+    {0x0840,0x02,"USD"}, //Puerto Rico  US Dollar
+    {0x0634,0x02,"QAR"}, //Qatar    Qatari Rial
+    {0x0250,0x02,"FRF"}, //Reunion  French Franc
+    {0x0642,0x02,"ROL"}, //Romania  Leu
+    {0x0810,0x02,"RUR"}, //Russian Federation   Russian Ruble
+    {0x0643,0x02,"RUB"}, // Russian Ruble
+    {0x0646,0x02,"RWF"}, //Rwanda   Rwanda Franc
+    {0x0654,0x02,"SHP"}, //St Helena    St Helena Pound
+    {0x0951,0x02,"XCD"}, //St Kitts - Nevis East Caribbean Dollar
+    {0x0951,0x02,"XCD"}, //Saint Lucia  East Caribbean Dollar
+    {0x0250,0x02,"FRF"}, //St Pierre and Miquelon   French Franc
+    {0x0951,0x02,"XCD"}, //Saint Vincent and The Grenadines East Caribbean Dollar
+    {0x0882,0x02,"WST"}, //Samoa    Tala
+    {0x0380,0x02,"ITL"}, //San Marino   Italian Lira
+    {0x0678,0x02,"STD"}, //Sao Tome and Principe    Dobra
+    {0x0682,0x02,"SAR"}, //Saudi Arabia Saudi Riyal
+    {0x0952,0x02,"XOF"}, //Senegal  CFA Franc BCEAO
+    {0x0690,0x02,"SCR"}, //Seychelles   Seychelles Rupee
+    {0x0694,0x02,"SLL"}, //Sierra Leone Leone
+    {0x0702,0x02,"SGD"}, //Singapore    Singapore Dollar
+    {0x0703,0x02,"SKK"}, //Slovakia Slovak Koruna
+    {0x0705,0x02,"SIT"}, //Slovenia Tolar
+    {0x090 ,0x02,"SBD"}, //Solomon Islands  Solomon Islands Dollar
+    {0x0706,0x02,"SOS"}, //Somalia  Somali Shilling
+    {0x0710,0x02,"ZAR"}, //South Africa Rand
+    {0x0724,0x02,"ESP"}, //Spain    Spanish Peseta
+    {0x0144,0x02,"LKR"}, //Sri Lanka    Sri Lanka Rupee
+    {0x0736,0x02,"SDD"}, //Sudan    Sudanese Dinar
+    {0x0740,0x02,"SRG"}, //Suriname Surinam Guilder
+    {0x0578,0x02,"NOK"}, //Svalbard and Jan Mayen Islands   Norwegian Krone
+    {0x0748,0x02,"SZL"}, //Swaziland    Lilangeni
+    {0x0752,0x02,"SEK"}, //Sweden   Swedish Krona
+    {0x0756,0x02,"CHF"}, //Switzerland  Swiss Franc
+    {0x0760,0x02,"SYP"}, //Syrian Arab Republic Syrian Pound
+    {0x0901,0x02,"TWD"}, //Taiwan, Province Of China    New Taiwan Dollar
+    {0x0972,0x02,"TJS"}, //Tajikistan   Somoni
+    {0x0762,0x02,"TJR"}, //Tajikistan (Old) Tajik Ruble (old)
+    {0x0834,0x02,"TZS"}, //Tanzania, United Republic Of Tanzanian Shilling
+    {0x0764,0x02,"THB"}, //Thailand Baht
+    {0x0952,0x02,"XOF"}, //Togo CFA Franc BCEAO
+    {0x0554,0x02,"NZD"}, //Tokelau  New Zealand Dollar
+    {0x0776,0x02,"TOP"}, //Tonga    Pa'anga
+    {0x0780,0x02,"TTD"}, //Trinidad and Tobago  Trinidad and Tobago Dollar
+    {0x0788,0x02,"TND"}, //Tunisia  Tunisian Dinar
+    {0x0792,0x02,"TRL"}, //Turkey   Turkish Lira
+    {0x0795,0x02,"TMM"}, //Turkmenistan Manat
+    {0x0840,0x02,"USD"}, //Turks and Caicos Islands US Dollar
+    {0x036 ,0x02,"AUD"}, //Tuvalu   Australian Dollar
+    {0x0800,0x02,"UGX"}, //Uganda   Uganda Shilling
+    {0x0980,0x02,"UAH"}, //Ukraine  Hryvnia
+    {0x0784,0x02,"AED"}, //United Arab Emirates UAE Dirham
+    {0x0826,0x02,"GBP"}, //United Kingdom   Pound Sterling
+    {0x0840,0x02,"USD"}, //United States    US Dollar
+    {0x0998,0x02,"USS"}, // (Same day)
+    {0x0997,0x02,"USN"}, // (Next day)
+    {0x0840,0x02,"USD"}, //United States Minor Outlaying Islands    US Dollar
+    {0x0858,0x02,"UYU"}, //Uruguay  Peso Uruguayo
+    {0x0860,0x02,"UZS"}, //Uzbekistan   Uzbekistan Sum
+    {0x0548,0x02,"VUV"}, //Vanuatu  Vatu
+    {0x0380,0x02,"ITL"}, //Vatican City State (Holy See)    Italian Lira
+    {0x0862,0x02,"VEB"}, //Venezuela    Bolivar
+    {0x0704,0x02,"VND"}, //Vietnam  Dong
+    {0x0840,0x02,"USD"}, //Virgin Islands (British) US Dollar
+    {0x0840,0x02,"USD"}, //Virgin Islands (U.S.)    US Dollar
+    {0x0953,0x02,"XPF"}, //Wallis and Futuna Islands    CFP Franc
+    {0x0504,0x02,"MAD"}, //Western Sahara   Moroccan Dirham
+    {0x0886,0x02,"YER"}, //Yemen    Yemeni Rial
+    {0x0891,0x02,"YUM"}, //Yugoslavia   New Dinar
+    {0x0180,0x02,"ZRN"}, //Zaire    New Zaire
+    {0x0894,0x02,"ZMK"}, //Zambia   Kwacha
+    {0x0716,0x02,"ZWD"}, //Zimbabwe Zimbabwe Dollar
+    {0x0978,0x02,"EUR"}, //Euro
+    {0x0000,0x00,"???"}, //Unknown
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const RESP_CODES gcRespCodes[] = {
+    //Code   Terminal Display              //ISO Description
+    {0x3030, "APPROVED        "}, //       //Approved
+  //{0x3031, "PLEASE CALL     "}, //       //Refer to card issuer
+    {0x3031, "DECLINED        "}, //       //Declined
+    {0x3032, "REFERRAL        "}, //       //Refer to card issuer's special conditions
+    {0x3033, "ERROR-CALL HELP "}, // - SN  //
+    {0x3132, "ERROR-CALL HELP "}, // - TR  //Invalid transaction
+    {0x3133, "ERROR-CALL HELP "}, // - AM  //Invalid amount
+    {0x3134, "ERROR-CALL HELP "}, // - RE  //Invalid card reader
+    {0x3139, "REENTER TRANSACT"}, // ION   //Re-enter transaction
+    {0x3235, "ERROR-CALL HELP "}, // - NT  //Unable to locate record on file
+    {0x3330, "ERROR-CALL HELP "}, // - FE  //Format error
+    {0x3331, "CALL HELP       "}, // - NS  //Bank not supported by switch
+    {0x3431, "PLEASE CALL     "}, // - LC  //Lost card
+    {0x3433, "PLEASE CALL     "}, // - CC  //Stolen card, pick up
+    {0x3531, "DECLINED        "}, //       //Not sufficient funds
+    {0x3534, "EXPIRED CARD    "}, //       //Expired card
+    {0x3535, "INCORRECT PIN   "}, //       //Incorrect PIN
+    {0x3538, "INVALID TRANSACT"}, // ION   //Transaction not permitted to terminal
+    {0x3736, "ERROR-CALL HELP "}, // - DC  //Invalid product codes
+    {0x3737, "RECONCILE ERROR "}, //       //Reconcile error (or host text if sent)
+    {0x3738, "BAD TRACE NUMBER"}, //       //Trace number not found
+    {0x3830, "BAD BATCH NUMBER"}, //       //Batch number not found
+    {0x3839, "BAD TERMINAL ID."}, //       //Bad terminal id.
+    {0x3931, "ERROR-CALL HELP "}, // - NA  //"Issuer or switch inoperative
+    {0x3934, "ERROR-CALL HELP "}, // - SQ  //"Duplicate transmission
+    {0x3935, "BATCH TRANSFER, "}, // WAIT  //"Reconcile error, Batch upload started
+    {0x3936, "ERROR-CALL HELP "}, // - SE  //"System malfunction
+    {0xFFFF, "                "}, //       //"NULL display
+    {0x0000, "NOT ACCEPTED    "}, // - IC  //"All other response codes received
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const PROC_CODES gcProcCodes[] = {
+    {PCodeCreditSale     , "Sale            "},
+    {PCodeDebitSale      , "DebitSale       "},
+    {PCodeRefund         , "Refund          "},
+    {PCodeVoidRefund     , "VoidRefund      "},
+    {PCodeCash           , "Cash            "},
+    {PCodeCashAdvance    , "Cash Advance    "},
+    {PCodeVoid           , "Void            "},
+    {PCodeQuasiCash      , "QuasiCash       "},
+    {PCodeBalanceInquiry , "BalanceInquiry  "},
+    {PCodePayment        , "Payment         "},
+    {PCodeMailOrderSale  , "MailOrderSale   "},
+    {PCodeInstalmentSale , "InstalmentSale  "},
+    {PCodeOffLineSale    , "OffLineSale     "},
+    {PCodePreAuxn        , "PreAuthorize    "},
+    {PCodeReversal       , "Reversal        "},
+    {PCodeSettlement     , "Settlement      "},
+    {PCodeSettlementTail , "SettlementTail  "},
+    {PCodeBatchUpload    , "BatchUpload     "},
+    {PCodeStatistics     , "Statistics      "},
+    {PCodeLOGON          , "Logon Terminal  "},
+    {PCodeTNMS           , "TNMS            "},
+    {PCodeNULL           , "Unknown code!   "},
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const BIN_TABLE gcBinTbl[] = {
+    {0x308136L, 0x308136L, "In Good Taste"   },
+    {0x308138L, 0x308199L, "In Good Taste"   },
+    {0x308300L, 0x332999L, "JCB"             },
+    {0x340000L, 0x349999L, "AMERICAN EXPRESS"},
+    {0x352800L, 0x358999L, "JCB"             },
+    {0x360000L, 0x369999L, "DINERS"          },
+    {0x370000L, 0x379999L, "AMERICAN EXPRESS"},
+    {0x380000L, 0x388999L, "DINERS"          },
+    {0x393000L, 0x394999L, "Carte Blanche"   },
+    {0x400000L, 0x499999L, "VISA"            },
+    {0x504564L, 0x504564L, "Citibank Financ."},
+    {0x589284L, 0x589284L, "Citibank Financ."},
+    {0x500000L, 0x599999L, "MASTERCARD"      },
+    {0x600840L, 0x600840L, "Tinadre"         },
+    {0x601100L, 0x601199L, "DISCOVER"        },
+    {0x603028L, 0x603028L, "Club Card"       },
+    {0x603259L, 0x603259L, "Citibank Financ."},
+    {0x762783L, 0x762783L, "Smarte Carte"    },
+    {0x762789L, 0x762789L, "Smarte Carte"    },
+    {0x622106L, 0x622106L, "IEC PERSIAN BANK"},
+    {       0L,        0L, "Unknown CARD"    },
+};
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+const VALIDATE_BITS gcValidateBits[] = {
+	{B02nL2_PAN,                    "PAN Differs     "},
+	{B03n06_ProcessingCode,         "Proc.Code Differs"},
+	{B04n12_AmountTrxn,             "Amounts Mismatch"},
+	{B11n06_SystemTraceNr,          "STAN Mismatch   "},
+	{B24n03_FunctionCode,           "Invalid NII     "},
+	{B41a08_CardAcceptorTerminalID, "Term ID Differs "},
+	{B42a15_CardAcceptorIDcode,     "Merchant Differs"},
+	{0xFF,                          "Invalid Message Type"},
+	{0x00,                          "Unknown Bits    "},
+};
+/*--------------------------------------------------------------------------*/
+/* 4 Line String Display */
+/*--------------------------------------------------------------------------*/
+void STRDISP( int no )
+{
+    int i, index;
+
+    for ( i = 0 ; i < 4 ; i++ ) {
+        if((index = msg_tbl4[no][i]) < 0) continue;
+        Lprintf(i, 0, (char *)msg_tbl1[gbLangCode][index]);
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+/* 1 Line String Display */
+/*--------------------------------------------------------------------------*/
+void Lprintf( char y, char x, char *str )
+{
+    int size;
+    char *tmpbuf;
+
+    size = strlen( str );
+    if ( !size ) return;
+
+    x &= 0x0F;
+    y &= 0x03;
+    if((x+size) > 16) size=16-x;
+
+    tmpbuf = &DSPBUF0[0] + (16 * y);
+
+    strncpy( &tmpbuf[x], str, size );
+    oLCD_DISPLAY ( 4, y, x, size );
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void Lprintf_1( char y, char x, char ch )
+{
+    x += y*16;
+    if(x >= 64) return;
+
+	DSPBUF0[x] = ch;
+    y = x>>4;
+    x &= 0x0F;
+    oLCD_DISPLAY ( 4, y, x, 1 );
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void Lprint_OV( char y, char x, char x_max, char *str )
+{
+    int size;
+    char *tmpbuf;
+
+    size = strlen( str );
+    if ( !size ) return;
+
+    x &= 0x0F;
+    y &= 0x03;
+    if((x+size) > x_max) size=x_max-x;
+
+    tmpbuf = &DSPBUF0[0] + (16 * y);
+    strncpy( &tmpbuf[x], str, size );
+    oLCD_DISPLAY ( 4, y, x, size );
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*
+typedef struct {
+    U32 sBIN,eBIN;
+    S08 Str[16];
+}BIN_TABLE;
+*/
+int getBINtableID(U08 *zPAN)
+{
+    U32 Sid;
+    int i=0;
+
+    Sid  = (U32)zPAN[0]<<16;
+    Sid |= (U32)zPAN[1]<<8;
+    Sid |= (U32)zPAN[2];
+    while(1) {
+        if((Sid >= gcBinTbl[i].sBIN) && (Sid <= gcBinTbl[i].eBIN)) break;
+        else if(gcBinTbl[i].sBIN < 0x100000L) break;
+        i++;
+    }
+    return(i);
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*
+typedef struct TagISO_4217 {
+    int  CurrencyCode;
+    int  CurrencyExp;
+    char *CurrencyName;
+}ISO_4217NAME;
+*/
+char *getCurrencyName(int code)
+{
+    int i, cn;
+
+    i=0;
+    while(1) {
+        cn = gc4217Name[i].CurrencyCode;
+        if((cn == code)||(cn==0x0000)) {
+            return(gc4217Name[i].CurrencyName);
+        }
+        i++;
+    }
+    return(NULL);
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+#ifdef  USE128x160_ColorLCD
+
+#include "C:\Hew\BT\UTIL\ColorLCD\a.TXT"
+
+U08 gbColorFG=0, gbColorBG=0, gbColorAT=0;
+int giIMGtotal=0, giIMG_work=0;
+static U16 swRx,swRy;
+
+static void printLcdFont(U16 uCode);
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void cLCD_reset(void)
+{
+    U08 x0,y0, dat;
+
+    PLCD_REG = 0xFD;
+    Wait1MS( 10 );
+    PLCD_REG = 0xFF;
+    Wait1MS( 10 );
+
+    PLCDregSET( 2, 0x01);
+    PLCDregSET(32, 0x08);
+    PLCDregSET(32, 0x0F);
+
+    PLCDregSET( 0, 0x00);
+    PLCDregSET( 1, 0x00); // 2Pix=3Byte
+    PLCDregSET( 6, 0x00);
+
+    for(y0=0; y0<0xA0; y0++) {
+        x0=0;
+        PLCDregSET( 3, x0);
+        PLCDregSET( 5, y0);
+
+        PLCDregSEL(11);
+        dat = (y0&0xF0)|((y0&0xF0)>>4); 
+        for(x0=0; x0<(128/2); x0++) { //R(4),G(4),B(4) format...
+            PLCD_DAT=dat; PLCD_DAT=dat; PLCD_DAT=dat;
+        }
+    }
+    PLCDregSET( 0, 0x40);
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void cLCD_view(int GrID)
+{
+    FLASH_FILE *pFile;
+    U08 x0,y0, *ptr;
+
+    gwModemWait = TIME_BASE0;
+    giIMG_work=GrID;
+    if(GrID > 0) {
+        pFile=(FLASH_FILE *)(FLASH_ADDRESS_START+(flash_no_of_byte - 0x8000L*(U32)GrID));
+        ptr = (U08 *)(pFile->FileAddr + sizeof(FLASH_FILE));
+    }else {
+        ptr=(U08 *)&GraphicIMG[0];
+    }
+    PLCDregSET( 1, 0x00); // 2Pix=3Byte
+    for(y0=0; y0<0xA0; y0++) {
+        x0=0;
+        PLCDregSET( 3, x0);
+        PLCDregSET( 5, y0);
+
+        PLCDregSEL(11);
+        for(x0=0; x0<(128/2); x0++) { //R(4),G(4),B(4) format...
+            PLCD_DAT=*ptr++; PLCD_DAT=*ptr++; PLCD_DAT=*ptr++;
+        }
+    }
+    PLCDregSET(0x00, 0x40);
+    DBGprt((".IMG(%d/%d):LoadTime=%u msec.\n",GrID,(giIMGtotal-1),deltaMS(gwModemWait, 0)));
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void cLCD_init(void)
+{
+    FLASH_FILE *pFile;
+    U08 x0,y0,i, *ptr;
+
+    ptr=(U08 *)(FLASH_ADDRESS_START);
+    if(getFlashStatus((U08 *)pgbCJKPRTptr)==0) {
+        ptr += (flash_no_of_byte - 0x8000L);
+        i=0; x0=1; y0=0;
+        while(giIMGtotal==0) {
+            i++; y0=i;
+            pFile=(FLASH_FILE *)ptr;
+            if(pFile->ZZ == 0x5a5a) {
+                DBGprt(("%02x-", pFile->DateTime.CLKMONTH));
+                DBGprt(("%02x-", pFile->DateTime.CLKDATE));
+                DBGprt(("%02x ", pFile->DateTime.CLKYEARL));
+                DBGprt(("%02x:", pFile->DateTime.CLKHOUR));
+                DBGprt(("%02x ", pFile->DateTime.CLKMIN));
+                DBGprt(("%6ld %04X %s [0x%lX]\n", pFile->FileSize, pFile->Attr, pFile->Name, pFile->FileAddr));
+                WaitTxDone(giDEBUG_COM);
+                if(memcmp((U08 *)&ptr[sizeof(FLASH_FILE)], (U08 *)&GraphicIMG[0], sizeof(GraphicIMG))==0) x0=0;
+                ptr -= 0x8000L;
+            }else {
+                giIMGtotal=i;
+                giIMG_work=i;
+                break;
+            }
+        }
+        if((y0) && (x0)) {
+            memcpy((char *)&gsFlashFAT[FLASH_FAT_MAX-1], (char *)&gsFlashFAT[0], sizeof(FLASH_FILE));
+            memcpy((char *)&gsFlashFAT[FLASH_FAT_MAX-1].DateTime, (char *)&date_time, sizeof(DATE_TIME));
+            sprintf((char *)&gsFlashFAT[FLASH_FAT_MAX-1].Name, "GraphicIMG%02u_128x160", i);
+            gsFlashFAT[FLASH_FAT_MAX-1].FileAddr = (long)ptr;
+            gsFlashFAT[FLASH_FAT_MAX-1].FileSize = sizeof(GraphicIMG);
+            gsFlashFAT[FLASH_FAT_MAX-1].SeekAddr = gsFlashFAT[FLASH_FAT_MAX-1].FileAddr; //OPEN_FILE by default
+
+            FlashWrite((U08 *)ptr, (U08 *)&gsFlashFAT[FLASH_FAT_MAX-1], sizeof(FLASH_FILE));
+            memset((char *)&gsFlashFAT[FLASH_FAT_MAX-1], 0x00, sizeof(FLASH_FILE));
+            ptr += sizeof(FLASH_FILE);
+            FlashWrite((U08 *)ptr, (U08 *)&GraphicIMG[0], sizeof(GraphicIMG));
+            giIMGtotal++;
+        }
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+#define LCD_BPL 256L
+#define LCD_FONT_SZ 32L
+#define LCD_FONT_YS 16L
+#define LCD_LINE_Y0 96
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+void cLCD_viewInfo(char *name)
+{
+    Lprintf(3, 0, name);
+    if((giIMG_work>=1)&&(giIMG_work<=5)) {
+		sprintf((char *)&gbTempBuf[0], "16%XCm", giIMG_work);
+		sprintf((char *)&gbTempBuf[32], " 5%XKg", giIMG_work);
+    }else {
+		sprintf((char *)&gbTempBuf[0], "17%XCm", giIMG_work);
+		sprintf((char *)&gbTempBuf[32], " 7%XKg", giIMG_work);
+    }
+    Lprintf(1, 0, (char *)&gbTempBuf[0]);
+    Lprintf(2, 0, (char *)&gbTempBuf[32]);
+}
+void cLCD_BLINKING(char cmd, char yp, char xp, char sz)
+{
+	if(cmd==CURBOX_ON ) gbColorAT=1;
+	else
+	if(cmd==CURBOX_OFF) gbColorAT=0;
+	else return;
+	
+	cLCD_DISPLAY(cmd, yp, xp, sz);
+	gbColorAT=0;
+}
+
+void cLCD_DISPLAY(U08 cmd, U08 yp, U08 xp, U08 sz)
+{
+    U16 i,j,k;
+
+	if(gbColorAT) {
+		gbColorFG=0xFF; gbColorBG=0x00;
+	}else {
+		gbColorFG=0x00; gbColorBG=0xFF;
+	}
+	
+    swRx=xp*16L; swRy=(U16)yp;
+    j= xp + yp*16L;
+    k= j+sz;
+    while(j<k) {
+        CHINA_CODE=(U08)DSPBUF0[j++];
+        if(HAVEPRTFONT2) {    // 2 BYTE PRTFONT?
+            if(CHINA_CODE & 0x80) {
+                CHINA_CODE=(CHINA_CODE<<8)|(DSPBUF0[j++]&0xFF);
+            }
+        }
+        printLcdFont(CHINA_CODE);
+    }
+
+        swRx=xp*(16L/2L);
+        swRy=yp*LCD_FONT_YS;
+        j=swRy+LCD_FONT_YS;
+
+    PLCDregSET( 1, 0x20); // 1Pix=2Byte
+    while(swRy < j) {
+        PLCDregSET( 3, swRx);
+        PLCDregSET( 5, swRy+LCD_LINE_Y0);
+
+        PLCDregSEL(11);
+        //R(4),G(4),B(4),X(4) format...
+        i = LCD_BPL*swRy + xp*16L;
+        k = i + (sz*16L);
+        while(i<k) {
+            PLCD_DAT=gbGrBuf[i++];
+        }
+        swRy++;
+    }
+
+    return;
+}
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+static void printLcdFont(U16 uCode)
+{
+    U16 x0,y0,ch;
+    U08 *pGrF;
+
+    while(swRx >= LCD_BPL) {
+        swRx -= LCD_BPL; swRy+=1;
+    }
+    if(uCode < 256) {
+            pgbCJKPRTptr = (char *)(PRTFONTADDR +(uCode * LCD_FONT_SZ/2L));
+            pGrF = (U08 *)(&gbGrBuf[swRx] + LCD_BPL*LCD_FONT_YS * swRy);
+            y0=0;
+            while(y0<LCD_FONT_YS) {
+                ch=pgbCJKPRTptr[y0++]&0xFF;
+                x0=0;
+                while(x0<(8*2)) {
+                    if(ch & 0x80) {
+                        pGrF[x0++]=gbColorFG; pGrF[x0++]=gbColorFG;
+                    }else {
+                        pGrF[x0++]=gbColorBG; pGrF[x0++]=gbColorBG;
+                    }
+                    ch <<= 1;
+                }
+                pGrF+=LCD_BPL;
+            }
+        goto prtGrFontRtnASC;
+    }else {
+        KJOHAP0=(uCode >> 8);
+        KJOHAP1=(uCode&0xFF);
+        if(KJOHAP0 < 0xA1) goto prtGrFontRtn;
+            //DBGprt(("%04X ", uCode));
+#ifdef CHINA_FONT_BIG5
+            if((KJOHAP1 >= 0x40) && (KJOHAP1 < 0x7F)) {
+                uCode=(KJOHAP0 - 0xA1) * 157 + (KJOHAP1 - 0x40);
+            }else
+            if((KJOHAP1 >= 0xA1) && (KJOHAP1 < 0xFF)) {
+                uCode=(KJOHAP0 - 0xA1) * 157 + (KJOHAP1 - (0xA1 - 0x3F));
+            }else goto prtGrFontRtn;;
+            if(KJOHAP0 >= 0xC9) uCode -= 408; //(94 + 157*2);
+#else
+            if((KJOHAP1 >= 0xA1) && (KJOHAP1 < 0xFF)) {
+                uCode=(KJOHAP0 - 0xA1) * 94 + (KJOHAP1 - 0xA1);
+            }else goto prtGrFontRtn;;
+#endif
+            pgbCJKPRTptr = (char *)(&pgbCJKPRTfnt[0] + uCode * LCD_FONT_SZ);
+
+            pGrF = (U08 *)(&gbGrBuf[swRx] + LCD_BPL*LCD_FONT_YS * swRy);
+            y0=0;
+            while(y0<LCD_FONT_YS) {
+                ch=pgbCJKPRTptr[y0++]&0xFF;
+                ch=(ch<<8) | pgbCJKPRTptr[y0++]&0xFF;
+                x0=0;
+                while(x0<(8*4)) {
+                    if(ch & 0x80) {
+                        pGrF[x0++]=gbColorFG; pGrF[x0++]=gbColorFG;
+                    }else {
+                        pGrF[x0++]=gbColorBG; pGrF[x0++]=gbColorBG;
+                    }
+                    ch <<= 1;
+                }
+
+                pGrF+=LCD_BPL;
+            }
+    }
+    prtGrFontRtn:       swRx += 16;
+    prtGrFontRtnASC:    swRx += 16;
+}
+#endif
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/

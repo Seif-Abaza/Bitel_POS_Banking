@@ -1,0 +1,518 @@
+# DO NOT DELETE
+
+./main.o: internal/CParam.h internal/types.h build_number.h internal/cfg.h
+./main.o: internal/tools.h internal/CGlobalConfig.h internal/string.h
+./main.o: gprs/common.h internal/CParam.h internal/tools.h card/CReaderICC.h
+./main.o: card/common.h internal/types.h internal/tools.h fs/CFile.h
+./main.o: internal/string.h fs/fs_flex.h fs/fs_flex.h xml/CActionManager.h
+./main.o: xml/CStorage.h xml/xml_common.h xml/CXmlHandler.h
+./main.o: xml/pugixml/pugixml.hpp xml/pugixml/pugiconfig.hpp
+./main.o: tasks/CTaskReadKey.h tasks/CTaskDisplay.h tasks/CTaskDisplay.h
+./main.o: tasks/CTaskPrinter.h internal/printer_common.h iso/CMegaContainer.h
+./main.o: gprs/CTaskConnect.h internal/CGlobalConfig.h gprs/CGPRSConnection.h
+./main.o: tasks/CTaskDisplay.h internal/CArabicEncoder.h
+./main.o: internal/CArabicString.h extern.h ../BF_SDK/include/drv/driver.h
+./main.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./main.o: ../BF_SDK/include/lib/beeplib.h ../BF_SDK/include/lib/timerlib.h
+./main.o: ../BF_SDK/include/lib/lcdlib.h ../BF_SDK/include/lib/commlib.h
+./main.o: ../BF_SDK/include/lib/keylib.h ../BF_SDK/include/lib/rtclib.h
+./main.o: ../BF_SDK/include/lib/msrlib.h ../BF_SDK/include/lib/sysinfo.h
+./main.o: ../BF_SDK/include/lib/des_ecb.h ../BF_SDK/include/lib/hdlcfcs.h
+./main.o: ../BF_SDK/include/lib/hdlc.h ../BF_SDK/include/lib/hsmodem.h
+./main.o: ../BF_SDK/include/lib/iso8583.h ../BF_SDK/include/lib/frmwri.h
+./xml/pugixml/pugixml.o: ./xml/pugixml/pugixml.hpp xml/pugixml/pugiconfig.hpp
+./xml/pugixml/pugixml.o: ./fs/CFile.h internal/string.h internal/tools.h
+./xml/pugixml/pugixml.o: fs/fs_flex.h internal/types.h ./extern.h
+./xml/pugixml/pugixml.o: internal/string.h internal/types.h build_number.h
+./xml/pugixml/pugixml.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/keydef.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/system.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/beeplib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/timerlib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/commlib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/keylib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/rtclib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/msrlib.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/hdlc.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/iso8583.h
+./xml/pugixml/pugixml.o: ../BF_SDK/include/lib/frmwri.h ./internal/tools.h
+./xml/pugixml/pugixpath.o: ./xml/pugixml/pugixml.hpp
+./xml/pugixml/pugixpath.o: xml/pugixml/pugiconfig.hpp
+./xml/CActionCardReader.o: ./xml/CActionCardReader.h xml/xml_common.h
+./xml/CActionCardReader.o: internal/types.h internal/string.h
+./xml/CActionCardReader.o: internal/CGlobalConfig.h xml/CStorage.h
+./xml/CActionCardReader.o: internal/tools.h internal/CParam.h
+./xml/CActionCardReader.o: tasks/CTaskDisplay.h ./extern.h internal/string.h
+./xml/CActionCardReader.o: internal/types.h build_number.h internal/cfg.h
+./xml/CActionCardReader.o: ../BF_SDK/include/drv/driver.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionCardReader.o: ../BF_SDK/include/system.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionCardReader.o: ../BF_SDK/include/lib/frmwri.h
+./xml/CActionCardReader.o: ./internal/CArabicEncoder.h
+./xml/CActionCardReader.o: ./internal/CArabicString.h ./tasks/CTaskPrinter.h
+./xml/CActionCardReader.o: internal/printer_common.h
+./xml/CActionConfirm.o: ./xml/CActionConfirm.h xml/xml_common.h
+./xml/CActionConfirm.o: internal/types.h internal/string.h xml/CStorage.h
+./xml/CActionConfirm.o: internal/tools.h internal/CParam.h ./extern.h
+./xml/CActionConfirm.o: internal/string.h internal/types.h build_number.h
+./xml/CActionConfirm.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionConfirm.o: ../BF_SDK/include/system.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionConfirm.o: ../BF_SDK/include/lib/frmwri.h tasks/CTaskDisplay.h
+./xml/CActionCopy.o: ./xml/CActionCopy.h xml/xml_common.h internal/types.h
+./xml/CActionCopy.o: internal/string.h xml/CStorage.h internal/tools.h
+./xml/CActionFunc.o: ./xml/CActionFunc.h xml/xml_common.h internal/types.h
+./xml/CActionFunc.o: internal/string.h xml/CStorage.h internal/tools.h
+./xml/CActionFunc.o: internal/CGlobalConfig.h ./iso/CMegaContainer.h
+./xml/CActionFunc.o: card/common.h ./extern.h internal/string.h
+./xml/CActionFunc.o: internal/types.h build_number.h internal/cfg.h
+./xml/CActionFunc.o: ../BF_SDK/include/drv/driver.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionFunc.o: ../BF_SDK/include/system.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionFunc.o: ../BF_SDK/include/lib/frmwri.h tasks/CTaskDisplay.h
+./xml/CActionInput.o: ./xml/CActionInput.h xml/xml_common.h internal/types.h
+./xml/CActionInput.o: internal/string.h xml/CStorage.h internal/tools.h
+./xml/CActionInput.o: internal/CParam.h tasks/CTaskDisplay.h ./extern.h
+./xml/CActionInput.o: internal/string.h internal/types.h build_number.h
+./xml/CActionInput.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionInput.o: ../BF_SDK/include/system.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionInput.o: ../BF_SDK/include/lib/frmwri.h
+./xml/CActionManager.o: ./xml/CActionManager.h xml/CStorage.h
+./xml/CActionManager.o: xml/xml_common.h internal/types.h internal/string.h
+./xml/CActionManager.o: internal/CParam.h internal/tools.h
+./xml/CActionManager.o: ./xml/CActionConfirm.h ./xml/CActionCopy.h
+./xml/CActionManager.o: ./xml/CActionFunc.h ./xml/CActionInput.h
+./xml/CActionManager.o: ./xml/CActionMenu.h ./xml/CActionPrinter.h
+./xml/CActionManager.o: ./xml/CActionStatic.h ./xml/CActionTransaction.h
+./xml/CActionManager.o: tasks/CTaskDisplay.h ./xml/CActionCardReader.h
+./xml/CActionManager.o: internal/CGlobalConfig.h
+./xml/CActionMenu.o: ./xml/CActionMenu.h xml/xml_common.h internal/types.h
+./xml/CActionMenu.o: internal/string.h xml/CStorage.h internal/tools.h
+./xml/CActionMenu.o: internal/CParam.h internal/CGlobalConfig.h
+./xml/CActionMenu.o: tasks/CTaskDisplay.h ./extern.h internal/string.h
+./xml/CActionMenu.o: internal/types.h build_number.h internal/cfg.h
+./xml/CActionMenu.o: ../BF_SDK/include/drv/driver.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionMenu.o: ../BF_SDK/include/system.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionMenu.o: ../BF_SDK/include/lib/frmwri.h
+./xml/CActionPrinter.o: ./xml/CActionPrinter.h xml/xml_common.h
+./xml/CActionPrinter.o: internal/types.h internal/string.h xml/CStorage.h
+./xml/CActionPrinter.o: ./tasks/CTaskPrinter.h internal/printer_common.h
+./xml/CActionPrinter.o: internal/CGlobalConfig.h internal/CParam.h
+./xml/CActionStatic.o: ./xml/CActionStatic.h xml/xml_common.h
+./xml/CActionStatic.o: internal/types.h internal/string.h xml/CStorage.h
+./xml/CActionStatic.o: internal/tools.h internal/CParam.h
+./xml/CActionTransaction.o: ./xml/CActionTransaction.h xml/xml_common.h
+./xml/CActionTransaction.o: internal/types.h internal/string.h
+./xml/CActionTransaction.o: tasks/CTaskDisplay.h xml/CStorage.h
+./xml/CActionTransaction.o: internal/tools.h internal/CParam.h
+./xml/CActionTransaction.o: internal/CGlobalConfig.h ./iso/CMegaContainer.h
+./xml/CActionTransaction.o: card/common.h ./extern.h internal/string.h
+./xml/CActionTransaction.o: internal/types.h build_number.h internal/cfg.h
+./xml/CActionTransaction.o: ../BF_SDK/include/drv/driver.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/keydef.h
+./xml/CActionTransaction.o: ../BF_SDK/include/system.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/beeplib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/timerlib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/lcdlib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/commlib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/keylib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/rtclib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/msrlib.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/sysinfo.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/des_ecb.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/hdlcfcs.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/hdlc.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/hsmodem.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/iso8583.h
+./xml/CActionTransaction.o: ../BF_SDK/include/lib/frmwri.h
+./xml/CStorage.o: xml/CStorage.h xml/xml_common.h internal/types.h
+./xml/CStorage.o: internal/string.h internal/tools.h internal/CParam.h
+./xml/CStorage.o: tasks/CTaskDisplay.h ./iso/CMegaContainer.h card/common.h
+./xml/CStorage.o: ./xml/xml_tools.h
+./xml/CXmlHandler.o: ./xml/CXmlHandler.h xml/pugixml/pugixml.hpp
+./xml/CXmlHandler.o: xml/pugixml/pugiconfig.hpp xml/xml_common.h
+./xml/CXmlHandler.o: internal/types.h internal/string.h
+./xml/CXmlHandler.o: ./xml/CActionManager.h xml/CStorage.h internal/tools.h
+./xml/CXmlHandler.o: ./fs/CFile.h fs/fs_flex.h ./xml/xml_tools.h
+./xml/xml_tools.o: ./xml/xml_tools.h xml/xml_common.h internal/types.h
+./xml/xml_tools.o: internal/string.h internal/tools.h internal/CParam.h
+./xml/xml_tools.o: internal/printer_common.h xml/CStorage.h
+./xml/xml_tools.o: xml/pugixml/pugixml.hpp xml/pugixml/pugiconfig.hpp
+./xml/xml_tools.o: ./internal/CArabicEncoder.h internal/string.h
+./xml/xml_tools.o: internal/types.h build_number.h internal/cfg.h
+./xml/xml_tools.o: ./internal/CArabicString.h tasks/CTaskDisplay.h
+./fs/CFile.o: ./fs/CFile.h internal/string.h internal/tools.h fs/fs_flex.h
+./fs/CFile.o: internal/types.h ./extern.h internal/string.h internal/types.h
+./fs/CFile.o: build_number.h internal/cfg.h ../BF_SDK/include/drv/driver.h
+./fs/CFile.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./fs/CFile.o: ../BF_SDK/include/lib/beeplib.h
+./fs/CFile.o: ../BF_SDK/include/lib/timerlib.h ../BF_SDK/include/lib/lcdlib.h
+./fs/CFile.o: ../BF_SDK/include/lib/commlib.h ../BF_SDK/include/lib/keylib.h
+./fs/CFile.o: ../BF_SDK/include/lib/rtclib.h ../BF_SDK/include/lib/msrlib.h
+./fs/CFile.o: ../BF_SDK/include/lib/sysinfo.h ../BF_SDK/include/lib/des_ecb.h
+./fs/CFile.o: ../BF_SDK/include/lib/hdlcfcs.h ../BF_SDK/include/lib/hdlc.h
+./fs/CFile.o: ../BF_SDK/include/lib/hsmodem.h ../BF_SDK/include/lib/iso8583.h
+./fs/CFile.o: ../BF_SDK/include/lib/frmwri.h
+./fs/CFileSystem.o: ./extern.h internal/string.h internal/types.h
+./fs/CFileSystem.o: build_number.h internal/cfg.h
+./fs/CFileSystem.o: ../BF_SDK/include/drv/driver.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/beeplib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/timerlib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/lcdlib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/commlib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/keylib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/rtclib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/msrlib.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/sysinfo.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/des_ecb.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/hdlcfcs.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/hdlc.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/hsmodem.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/iso8583.h
+./fs/CFileSystem.o: ../BF_SDK/include/lib/frmwri.h ./fs/CFileSystem.h
+./fs/CFileSystem.o: internal/types.h fs/fs_flex.h internal/tools.h
+./fs/fs_flex.o: fs/fs_flex.h internal/types.h ./fs/CFileSystem.h
+./internal/CArabicEncoder.o: ./internal/CArabicEncoder.h internal/string.h
+./internal/CArabicEncoder.o: internal/types.h build_number.h internal/cfg.h
+./internal/CArabicEncoder.o: internal/tools.h
+./internal/CArabicString.o: ./internal/CArabicString.h internal/string.h
+./internal/CArabicString.o: internal/types.h build_number.h internal/cfg.h
+./internal/CArabicString.o: internal/tools.h
+./internal/CGlobalConfig.o: ./internal/CGlobalConfig.h internal/types.h
+./internal/CGlobalConfig.o: build_number.h internal/cfg.h internal/string.h
+./internal/CGlobalConfig.o: gprs/common.h internal/CParam.h internal/tools.h
+./internal/CGlobalConfig.o: card/CReaderICC.h card/common.h internal/types.h
+./internal/CGlobalConfig.o: internal/tools.h ./internal/CTLVParser.h
+./internal/CGlobalConfig.o: ./extern.h ../BF_SDK/include/drv/driver.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/keydef.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/system.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/beeplib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/timerlib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/commlib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/keylib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/rtclib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/msrlib.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/hdlc.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/iso8583.h
+./internal/CGlobalConfig.o: ../BF_SDK/include/lib/frmwri.h ./fs/CFile.h
+./internal/CGlobalConfig.o: internal/string.h fs/fs_flex.h
+./internal/CGlobalConfig.o: ./iso/CMegaContainer.h tasks/CTaskDisplay.h
+./internal/CParam.o: ./internal/CParam.h internal/types.h build_number.h
+./internal/CParam.o: internal/cfg.h internal/tools.h tasks/CTaskDisplay.h
+./internal/CParam.o: ./xml/CStorage.h xml/xml_common.h internal/types.h
+./internal/CParam.o: internal/string.h internal/CGlobalConfig.h ./extern.h
+./internal/CParam.o: internal/string.h ../BF_SDK/include/drv/driver.h
+./internal/CParam.o: ../BF_SDK/include/lib/keydef.h
+./internal/CParam.o: ../BF_SDK/include/system.h
+./internal/CParam.o: ../BF_SDK/include/lib/beeplib.h
+./internal/CParam.o: ../BF_SDK/include/lib/timerlib.h
+./internal/CParam.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/CParam.o: ../BF_SDK/include/lib/commlib.h
+./internal/CParam.o: ../BF_SDK/include/lib/keylib.h
+./internal/CParam.o: ../BF_SDK/include/lib/rtclib.h
+./internal/CParam.o: ../BF_SDK/include/lib/msrlib.h
+./internal/CParam.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/CParam.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/CParam.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/CParam.o: ../BF_SDK/include/lib/hdlc.h
+./internal/CParam.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/CParam.o: ../BF_SDK/include/lib/iso8583.h
+./internal/CParam.o: ../BF_SDK/include/lib/frmwri.h
+./internal/CTLVParser.o: ./extern.h internal/string.h internal/types.h
+./internal/CTLVParser.o: build_number.h internal/cfg.h
+./internal/CTLVParser.o: ../BF_SDK/include/drv/driver.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/keydef.h
+./internal/CTLVParser.o: ../BF_SDK/include/system.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/beeplib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/timerlib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/commlib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/keylib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/rtclib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/msrlib.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/hdlc.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/iso8583.h
+./internal/CTLVParser.o: ../BF_SDK/include/lib/frmwri.h
+./internal/CTLVParser.o: ./internal/CTLVParser.h ./fs/CFile.h
+./internal/CTLVParser.o: internal/string.h internal/tools.h fs/fs_flex.h
+./internal/CTLVParser.o: internal/types.h internal/tools.h ./iso/common.h
+./internal/des.o: ./internal/des.h internal/types.h build_number.h
+./internal/des.o: internal/cfg.h
+./internal/mem.o: internal/string.h internal/types.h build_number.h
+./internal/mem.o: internal/cfg.h ./extern.h ../BF_SDK/include/drv/driver.h
+./internal/mem.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./internal/mem.o: ../BF_SDK/include/lib/beeplib.h
+./internal/mem.o: ../BF_SDK/include/lib/timerlib.h
+./internal/mem.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/mem.o: ../BF_SDK/include/lib/commlib.h
+./internal/mem.o: ../BF_SDK/include/lib/keylib.h
+./internal/mem.o: ../BF_SDK/include/lib/rtclib.h
+./internal/mem.o: ../BF_SDK/include/lib/msrlib.h
+./internal/mem.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/mem.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/mem.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/mem.o: ../BF_SDK/include/lib/hdlc.h
+./internal/mem.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/mem.o: ../BF_SDK/include/lib/iso8583.h
+./internal/mem.o: ../BF_SDK/include/lib/frmwri.h internal/tools.h
+./internal/string.o: ./extern.h internal/string.h internal/types.h
+./internal/string.o: build_number.h internal/cfg.h
+./internal/string.o: ../BF_SDK/include/drv/driver.h
+./internal/string.o: ../BF_SDK/include/lib/keydef.h
+./internal/string.o: ../BF_SDK/include/system.h
+./internal/string.o: ../BF_SDK/include/lib/beeplib.h
+./internal/string.o: ../BF_SDK/include/lib/timerlib.h
+./internal/string.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/string.o: ../BF_SDK/include/lib/commlib.h
+./internal/string.o: ../BF_SDK/include/lib/keylib.h
+./internal/string.o: ../BF_SDK/include/lib/rtclib.h
+./internal/string.o: ../BF_SDK/include/lib/msrlib.h
+./internal/string.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/string.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/string.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/string.o: ../BF_SDK/include/lib/hdlc.h
+./internal/string.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/string.o: ../BF_SDK/include/lib/iso8583.h
+./internal/string.o: ../BF_SDK/include/lib/frmwri.h internal/tools.h
+./internal/string.o: tasks/CTaskDisplay.h
+./internal/tools.o: ./extern.h internal/string.h internal/types.h
+./internal/tools.o: build_number.h internal/cfg.h
+./internal/tools.o: ../BF_SDK/include/drv/driver.h
+./internal/tools.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./internal/tools.o: ../BF_SDK/include/lib/beeplib.h
+./internal/tools.o: ../BF_SDK/include/lib/timerlib.h
+./internal/tools.o: ../BF_SDK/include/lib/lcdlib.h
+./internal/tools.o: ../BF_SDK/include/lib/commlib.h
+./internal/tools.o: ../BF_SDK/include/lib/keylib.h
+./internal/tools.o: ../BF_SDK/include/lib/rtclib.h
+./internal/tools.o: ../BF_SDK/include/lib/msrlib.h
+./internal/tools.o: ../BF_SDK/include/lib/sysinfo.h
+./internal/tools.o: ../BF_SDK/include/lib/des_ecb.h
+./internal/tools.o: ../BF_SDK/include/lib/hdlcfcs.h
+./internal/tools.o: ../BF_SDK/include/lib/hdlc.h
+./internal/tools.o: ../BF_SDK/include/lib/hsmodem.h
+./internal/tools.o: ../BF_SDK/include/lib/iso8583.h
+./internal/tools.o: ../BF_SDK/include/lib/frmwri.h internal/tools.h
+./internal/tools.o: ./internal/font1251.h ./internal/CParam.h
+./internal/tools.o: tasks/CTaskDisplay.h ./iso/common.h
+./tasks/CTaskDisplay.o: tasks/CTaskDisplay.h internal/types.h
+./tasks/CTaskDisplay.o: internal/tools.h internal/CParam.h internal/string.h
+./tasks/CTaskDisplay.o: internal/printer_common.h ./internal/font1251.h
+./tasks/CTaskDisplay.o: internal/CGlobalConfig.h ./xml/CStorage.h
+./tasks/CTaskDisplay.o: xml/xml_common.h ./xml/xml_tools.h ./extern.h
+./tasks/CTaskDisplay.o: internal/string.h internal/types.h build_number.h
+./tasks/CTaskDisplay.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/keydef.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/system.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/beeplib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/timerlib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/lcdlib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/commlib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/keylib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/rtclib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/msrlib.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/sysinfo.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/des_ecb.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/hdlcfcs.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/hdlc.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/hsmodem.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/iso8583.h
+./tasks/CTaskDisplay.o: ../BF_SDK/include/lib/frmwri.h
+./tasks/CTaskPrinter.o: ./tasks/CTaskPrinter.h internal/types.h
+./tasks/CTaskPrinter.o: internal/printer_common.h ./extern.h
+./tasks/CTaskPrinter.o: internal/string.h internal/types.h build_number.h
+./tasks/CTaskPrinter.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/keydef.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/system.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/beeplib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/timerlib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/lcdlib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/commlib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/keylib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/rtclib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/msrlib.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/sysinfo.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/des_ecb.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/hdlcfcs.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/hdlc.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/hsmodem.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/iso8583.h
+./tasks/CTaskPrinter.o: ../BF_SDK/include/lib/frmwri.h tasks/CTaskDisplay.h
+./tasks/CTaskPrinter.o: internal/tools.h internal/CParam.h ./xml/CStorage.h
+./tasks/CTaskPrinter.o: xml/xml_common.h internal/string.h
+./tasks/CTaskPrinter.o: internal/CGlobalConfig.h ./internal/CArabicEncoder.h
+./tasks/CTaskPrinter.o: ./internal/CArabicString.h
+./iso/CKKM.o: ./iso/CKKM.h internal/tools.h card/common.h internal/types.h
+./iso/CKKM.o: internal/CParam.h ./fs/CFile.h internal/string.h fs/fs_flex.h
+./iso/CKKM.o: ./extern.h internal/string.h internal/types.h build_number.h
+./iso/CKKM.o: internal/cfg.h ../BF_SDK/include/drv/driver.h
+./iso/CKKM.o: ../BF_SDK/include/lib/keydef.h ../BF_SDK/include/system.h
+./iso/CKKM.o: ../BF_SDK/include/lib/beeplib.h
+./iso/CKKM.o: ../BF_SDK/include/lib/timerlib.h ../BF_SDK/include/lib/lcdlib.h
+./iso/CKKM.o: ../BF_SDK/include/lib/commlib.h ../BF_SDK/include/lib/keylib.h
+./iso/CKKM.o: ../BF_SDK/include/lib/rtclib.h ../BF_SDK/include/lib/msrlib.h
+./iso/CKKM.o: ../BF_SDK/include/lib/sysinfo.h ../BF_SDK/include/lib/des_ecb.h
+./iso/CKKM.o: ../BF_SDK/include/lib/hdlcfcs.h ../BF_SDK/include/lib/hdlc.h
+./iso/CKKM.o: ../BF_SDK/include/lib/hsmodem.h ../BF_SDK/include/lib/iso8583.h
+./iso/CKKM.o: ../BF_SDK/include/lib/frmwri.h
+./iso/CMegaContainer.o: ./iso/CMegaContainer.h card/common.h internal/types.h
+./iso/CMegaContainer.o: internal/string.h internal/tools.h
+./iso/CMegaContainer.o: internal/CGlobalConfig.h ./extern.h internal/string.h
+./iso/CMegaContainer.o: internal/types.h build_number.h internal/cfg.h
+./iso/CMegaContainer.o: ../BF_SDK/include/drv/driver.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/keydef.h
+./iso/CMegaContainer.o: ../BF_SDK/include/system.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/beeplib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/timerlib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/lcdlib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/commlib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/keylib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/rtclib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/msrlib.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/sysinfo.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/des_ecb.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/hdlcfcs.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/hdlc.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/hsmodem.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/iso8583.h
+./iso/CMegaContainer.o: ../BF_SDK/include/lib/frmwri.h ./internal/des.h
+./gprs/CGPRSConnection.o: ./extern.h internal/string.h internal/types.h
+./gprs/CGPRSConnection.o: build_number.h internal/cfg.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/drv/driver.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/keydef.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/system.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/beeplib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/timerlib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/lcdlib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/commlib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/keylib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/rtclib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/msrlib.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/sysinfo.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/des_ecb.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/hdlcfcs.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/hdlc.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/hsmodem.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/iso8583.h
+./gprs/CGPRSConnection.o: ../BF_SDK/include/lib/frmwri.h
+./gprs/CGPRSConnection.o: ./gprs/CGPRSConnection.h card/common.h
+./gprs/CGPRSConnection.o: internal/types.h tasks/CTaskDisplay.h
+./gprs/CGPRSConnection.o: ./gprs/CTaskConnect.h internal/CParam.h
+./gprs/CGPRSConnection.o: internal/CGlobalConfig.h internal/string.h
+./gprs/CTaskConnect.o: ./gprs/CTaskConnect.h internal/types.h
+./gprs/CTaskConnect.o: internal/CParam.h internal/CGlobalConfig.h
+./gprs/CTaskConnect.o: card/common.h ./extern.h internal/string.h
+./gprs/CTaskConnect.o: internal/types.h build_number.h internal/cfg.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/drv/driver.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/keydef.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/system.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/beeplib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/timerlib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/lcdlib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/commlib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/keylib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/rtclib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/msrlib.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/sysinfo.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/des_ecb.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/hdlcfcs.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/hdlc.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/hsmodem.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/iso8583.h
+./gprs/CTaskConnect.o: ../BF_SDK/include/lib/frmwri.h internal/tools.h
+./gprs/CTaskConnect.o: internal/string.h ./gprs/CGPRSConnection.h
+./gprs/CTaskConnect.o: tasks/CTaskDisplay.h
+./card/CReaderICC.o: ./card/CReaderICC.h card/common.h internal/types.h
+./card/CReaderICC.o: internal/tools.h ../BF_SDK/include/infra/config.h
+./card/CReaderICC.o: ../BF_SDK/include/infra/error.h
+./card/CReaderICC.o: ../BF_SDK/include/hal/usip/hal_apm.h
+./card/CReaderICC.o: ../BF_SDK/include/hal/usip/hal_scs.h
+./card/CReaderICC.o: ../BF_SDK/include/devs/sc_at83c26.h ../BF_SDK/include/libemv.h
+./card/CTellerCard.o: ./card/CTellerCard.h internal/tools.h
+./card/CTellerCard.o: ../BF_SDK/include/infra/config.h
+./card/CTellerCard.o: ../BF_SDK/include/infra/error.h
+./card/CTellerCard.o: ../BF_SDK/include/hal/usip/hal_apm.h
+./card/CTellerCard.o: ../BF_SDK/include/hal/usip/hal_scs.h
+./card/CTellerCard.o: ../BF_SDK/include/devs/sc_at83c26.h ../BF_SDK/include/libemv.h

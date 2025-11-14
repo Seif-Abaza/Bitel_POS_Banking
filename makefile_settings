@@ -1,0 +1,18 @@
+# Enable/Disable debug
+# Здесь можно не редактировать, а запускать build_debug или build_release
+PROJ_DEBUG				= 1
+
+PROJ_VERSION			= 1.0.0
+
+PROJ_NAME				= BANQUE MISR
+
+#PROJ_NAME				+= v$(PROJ_VERSION)
+
+ifeq ($(PROJ_DEBUG),1)
+	PROJ_MODE			= debug
+	GCC_OPT				= -D MY_DEBUG
+else
+	PROJ_MODE			= release
+endif
+
+PROJ_TARGET				= $(PROJ_NAME) $(PROJ_VERSION) $(PROJ_MODE)
